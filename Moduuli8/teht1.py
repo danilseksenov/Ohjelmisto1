@@ -10,12 +10,18 @@ connection = mysql.connector.connect(
          collation = 'utf8mb4_general_ci',
          )
 
-def search_airport(nimi, kunta):
+def fetch_airport_by_icao(icao):
+    sql = f"select name, municipality from airport where ident = '{icao}'"
     cursor = connection.cursor()
-    sql = (f"SELECT name, iso_region FROM airport WHERE ident = {icao_code} ")
     cursor.execute(sql)
-    result = cursor.fetchone()
-    print(result)
+    result_row = cursor.fetchone()
+    #print(result_row)
+    return result_row
 
-icao_code = input("Syötä ICAO- koodi: ").upper()
-search_airport(icao_code, icao_code)
+user_input = input("Anna ICAO- koodi: ").upper()
+result = fetch_airport_by_icao(user_input)
+
+if result != None:
+    print(f"Haettu kenttä: {result[0]}, {result[1]}")
+else:
+    print("Eipä löydy")
