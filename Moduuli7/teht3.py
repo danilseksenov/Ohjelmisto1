@@ -14,7 +14,7 @@ lentoasematiedot = {
 def syota_lentokentta(lentoasematiedot):
     icao_koodi = input ("Anna ICAO- koodi: ").upper()
     lentoaseman_nimi = input ("Anna lentoaseman nimi:  ")
-    lentoasematiedot[icao_koodi] = lentoaseman_nimi
+    lentoaseman_nimi = lentoasematiedot[icao_koodi]
     print(f"Lentoasema {lentoaseman_nimi} (ICAO: {icao_koodi}) lisätty lentoasematietoihin")
 
 def hae_lentokentta(lentoasematiedot):
