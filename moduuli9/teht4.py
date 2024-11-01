@@ -2,7 +2,6 @@ import random
 
 from tabulate import tabulate
 
-
 class Auto:
     def __init__(self, plate, max_speed):
         self.plate = plate
